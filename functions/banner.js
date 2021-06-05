@@ -37,7 +37,9 @@ exports.handler = async (evt) => {
 	}
 
 	return {
-		statusCode: 200,
-		body: `Your query: ${banner}`,
-	};
+		statusCode: 302,
+		headers: {
+		   "Location": banner,
+		}
+  }
 };

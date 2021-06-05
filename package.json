@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JipFr/Equinox-functions/issues"
   },
-  "homepage": "https://github.com/JipFr/Equinox-functions#readme"
+  "homepage": "https://github.com/JipFr/Equinox-functions#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
 }

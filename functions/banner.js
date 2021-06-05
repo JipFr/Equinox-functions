@@ -26,7 +26,15 @@ exports.handler = async (evt) => {
 		method: "POST",
 	}).then((d) => d.json());
 
-	const banner = aniListData?.data?.Media?.bannerImage ?? null;
+	let banner = "";
+	if (
+		aniListData &&
+		aniListData.data &&
+		aniListData.data.Media &&
+		aniListData.data.Media.bannerImage
+	) {
+		banner = aniListData.data.Media.bannerImage;
+	}
 
 	return {
 		statusCode: 200,

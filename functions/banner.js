@@ -1,7 +1,16 @@
 const fetch = require("node-fetch");
 
 exports.handler = async (evt) => {
-	const query = evt.queryStringParameters.query || null;
+	const searchQuery = evt.queryStringParameters.query || null;
+
+	const query = `
+	query media($search:String, $type:MediaType) { 
+		Media(search:$search, type:$type){
+			id
+			bannerImage
+		}
+	}
+	`;
 
 	const aniListData = await fetch("https://graphql.anilist.co", {
 		headers: {
@@ -10,7 +19,7 @@ exports.handler = async (evt) => {
 		body: JSON.stringify({
 			query,
 			variables: {
-				search: query,
+				search: searchQuery,
 				type: "MANGA",
 			},
 		}),
